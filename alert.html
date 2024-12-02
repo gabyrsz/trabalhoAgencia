@@ -1,0 +1,59 @@
+
+<style type="text/css">
+    #btn-alert{
+    display: none;
+    }
+
+    .swal2-container.swal2-backdrop-show, .swal2-container.swal2-noanimation 
+    {
+    background-image: linear-gradient(109deg, rgba(10, 12, 16, 0.832) 15%, rgba(10, 12, 16, 0.547) 50%, rgba(10, 12, 16, 0.758) 85%),
+    url('img/bb1.jpg');
+    }   
+    </style>
+
+<!-- Incluir o JavaScript do SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function mostrarAlerta() {
+        Swal.fire({
+            title: 'Conta',
+            text: 'Sua conta foi criada com sucesso!',
+            icon: 'success', // Ícone de sucesso, existem outros como 'error', 'warning', 'info'
+            confirmButtonText: 'Ok'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = 'index.php';
+        }
+    });
+    }
+    function mostrarAlertaSenha() {
+        Swal.fire({
+            title: 'Atenção',
+            text: 'As senhas não conferem.Tente novamente!',
+            icon: 'error', // Ícone de sucesso, existem outros como 'error', 'warning', 'info'
+            confirmButtonText: 'Ok'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            window.history.back();
+        }
+    });
+    }
+    function mostrarAlertaEmail() {
+        Swal.fire({
+            title: 'Atenção',
+            text: 'Email já possui cadastro, informe outro!',
+            icon: 'warning', // Ícone de sucesso, existem outros como 'error', 'warning', 'info'
+            confirmButtonText: 'Ok'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            window.history.back();
+        }
+    });
+    }
+</script>
+
+
+<button id="btn-alert" onclick="mostrarAlerta()"></button>
+<button id="btn-alert" onclick="mostrarAlertaSenha()"></button>
+<button id="btn-alert" onclick="mostrarAlertaEmail()"></button>
